@@ -13,6 +13,10 @@ inputs:
     description: "Custom commit message for the generated code."
     required: false
     default: "chore: Generate code from .templ files"
+  format:
+    description: "Flag to enable or disable formatting the generated code."
+    required: false
+    default: "true"
 runs:
   using: "composite"
   steps:
@@ -24,6 +28,7 @@ runs:
       shell: bash
       run: go install github.com/a-h/templ/cmd/templ@latest
     - name: Run templ fmt
+      if: ${{ inputs.format == 'true' }}
       shell: bash
       run: templ fmt ${{ inputs.directory }}
     - name: Run templ generate
