@@ -12,7 +12,7 @@ inputs:
   commit-message:
     description: "Custom commit message for the generated code."
     required: false
-    default: "chore: Generate code from .templ files"
+    default: "chore: Generate templ code"
   format:
     description: "Flag to enable or disable formatting the generated code."
     required: false
