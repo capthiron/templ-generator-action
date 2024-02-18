@@ -61,7 +61,7 @@ The following is an extended example with all available options.
     format: "false"
 ```
 
-For more details on inputs, see the action.yml file in this repository.
+For more details on inputs, see the [action.yml](https://github.com/capthiron/templ-generator-action/blob/main/action.yml) file in this repository.
 
 ## License
 
