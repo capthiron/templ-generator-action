@@ -30,10 +30,10 @@ runs:
   steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-go@v5
-      shell: bash
       with:
         go-version: "stable"
-    - run: |
+      run: |
         go install github.com/a-h/templ/cmd/templ@latest \
         templ fmt -path ${{ inputs.directory }} \
         templ generate -path ${{ inputs.directory }} \
+      shell: bash
