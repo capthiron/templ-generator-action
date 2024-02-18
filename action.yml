@@ -32,6 +32,12 @@ runs:
     - uses: actions/setup-go@v5
       with:
         go-version: "stable"
-    - run: go install github.com/a-h/templ/cmd/templ@latest
-    - run: templ fmt -path ${{ inputs.directory }}
-    - run: templ generate -path ${{ inputs.directory }}
+    - name: Install templ
+      shell: bash
+      run: go install github.com/a-h/templ/cmd/templ@latest
+    - name: Run templ fmt
+      shell: bash
+      run: templ fmt -path ${{ inputs.directory }}
+    - name: Run templ generate
+      shell: bash
+      run: templ generate -path ${{ inputs.directory }}
