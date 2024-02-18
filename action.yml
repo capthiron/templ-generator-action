@@ -30,5 +30,6 @@ runs:
       shell: bash
       run: templ generate -path ${{ inputs.directory }}
     - uses: stefanzweifel/git-auto-commit-action@v5
+      if: ${{ inputs.commit == 'true' }}
       with:
         commit_message: ${{ inputs.commit-message }}
