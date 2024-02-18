@@ -5,26 +5,14 @@ inputs:
     description: "The directory where to look for .templ files."
     required: false
     default: "."
-  commit-message:
-    description: "Custom commit message for the generated code."
-    required: false
-    default: "chore: generate go code from templ files"
   commit:
     description: "Flag to enable or disable committing changes."
     required: false
     default: "true"
-  create-pull-request:
-    description: "Whether to create a pull request instead of committing directly."
+  commit-message:
+    description: "Custom commit message for the generated code."
     required: false
-    default: "false"
-  pull-request-target-branch:
-    description: "The target branch for the pull request."
-    required: false
-    default: "main" # or 'master' depending on the default branch
-  pull-request-branch-name:
-    description: "The branch name for the commits with the generated code."
-    required: false
-    default: "templ/update-generated-code"
+    default: "chore: Generate code from .templ files"
 runs:
   using: "composite"
   steps:
@@ -41,3 +29,6 @@ runs:
     - name: Run templ generate
       shell: bash
       run: templ generate -path ${{ inputs.directory }}
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: ${{ inputs.commit-message }}
