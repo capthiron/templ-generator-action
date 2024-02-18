@@ -37,6 +37,9 @@ jobs:
         uses: go-templ/templ-generator-action@v1
 ```
 
+> [!NOTE]
+> The Action has to be used in a Job that runs on a UNIX system (e.g. `ubuntu-latest`).
+
 The following is an extended example with all available options.
 
 ```yaml
