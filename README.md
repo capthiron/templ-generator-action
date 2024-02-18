@@ -1,7 +1,7 @@
 # templ-generator-action
 
-This GitHub Action is designed for projects using the [`templ`](https://github.com/a-h/templ) templating language, which generates Go code from `.templ` template files.
-The `templ Generator Action` streamlines the process of code generation by automating the conversion of `.templ` files into Go source code,
+This GitHub Action is designed for projects using the [`templ`](https://github.com/a-h/templ) templating language.
+The `templ-generator-action` streamlines the process of code generation by automating the conversion of `.templ` files into Go source code,
 ensuring that your project's templated code is always up-to-date with your templates.
 
 ## Usage
@@ -30,11 +30,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Other steps that change files in the repository
-
       # Format, generate and commit all changed .templ and generated .go files back to the repository
       - name: Generate templ code
-        uses: go-templ/templ-generator-action@v1
+        uses: capthiron/templ-generator-action@v1
 ```
 
 > [!NOTE]
@@ -44,7 +42,7 @@ The following is an extended example with all available options.
 
 ```yaml
 - name: Generate templ code
-  uses: capthiron/templ-generator-action@v0.1.0-alpha.9
+  uses: capthiron/templ-generator-action@v1
   with:
     # Optional: The directory where to look for .templ files.
     # Default is "."
@@ -67,4 +65,4 @@ For more details on inputs, see the action.yml file in this repository.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/capthiron/templ-generator-action/blob/main/LICENSE) file for details.
