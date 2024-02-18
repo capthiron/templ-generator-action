@@ -38,3 +38,6 @@ runs:
       if: ${{ inputs.commit == 'true' }}
       with:
         commit_message: ${{ inputs.commit-message }}
+branding:
+  icon: "layout"
+  color: "gray-dark"
