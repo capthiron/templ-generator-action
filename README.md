@@ -59,6 +59,19 @@ The following is an extended example with all available options.
     # Optional: Flag to enable or disable formatting the generated code.
     # Default is "true"
     format: "false"
+
+    # Optional: Flag to enable or disable setting up Go.
+    # If set to "false", the action requires Go to be already installed.
+    # Default is "true"
+    setup-go: "true"
+
+    # Optional: The Go version to use.
+    # Default is "stable"
+    go-version: "1.22" # Replace with your desired Go version
+
+    # Optional: The templ version to use.
+    # Default is "latest"
+    templ-version: "v0.2.543" # Replace with your desired templ version
 ```
 
 For more details on inputs, see the [action.yml](https://github.com/capthiron/templ-generator-action/blob/main/action.yml) file in this repository.

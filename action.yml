@@ -17,15 +17,28 @@ inputs:
     description: "Flag to enable or disable formatting the generated code."
     required: false
     default: "true"
+  setup-go:
+    description: "Flag to enable or disable setting up Go."
+    required: false
+    default: "true"
+  go-version:
+    description: "The Go version to use."
+    required: false
+    default: "stable"
+  templ-version:
+    description: "The templ version to use."
+    required: false
+    default: "latest"
 runs:
   using: "composite"
   steps:
     - uses: actions/setup-go@v5
+      if: ${{ inputs.setup-go == 'true' }}
       with:
-        go-version: "stable"
+        go-version: ${{ inputs.go-version }}
     - name: Install templ
       shell: bash
-      run: go install github.com/a-h/templ/cmd/templ@latest
+      run: go install github.com/a-h/templ/cmd/templ@${{ inputs.templ-version }}
     - name: Run templ fmt
       if: ${{ inputs.format == 'true' }}
       shell: bash
